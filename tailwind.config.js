@@ -6,7 +6,13 @@ module.exports = {
       fontFamily: {
         sans: ["Roboto", ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        "silent-gray": "#817E8F",
+        "light-gray": "#32303E",
+        "dark-gray": "#201E29",
+        "darken-gray": "#15141A",
+      },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };
