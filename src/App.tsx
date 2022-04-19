@@ -1,19 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ListVideos from './components/ListVideos/ListVideos';
 import SearchInput from './components/SearchInput';
 import BaseLayout from './layouts/BaseLayout';
 import { YoutubeVideoData } from './types';
+import Player from './components/Player/Player';
 
 const App: React.FC = () => {
 	const [searchResult, setSearchResult] = useState<YoutubeVideoData[]>([]);
+	const [currentVideo, setCurrentVideo] = useState<YoutubeVideoData>();
 
 	return (
 		<BaseLayout>
 			<section className="flex flex-col col-span-2">
 				<SearchInput onSubmit={setSearchResult} />
-				<div className="col-span-2 row-span-4 bg-darken-gray">Video PLayer</div>
+				<Player video={currentVideo} />
 			</section>
-			<ListVideos searchResult={searchResult} />
+			<ListVideos searchResult={searchResult} onClick={setCurrentVideo} />
 		</BaseLayout>
 	);
 };

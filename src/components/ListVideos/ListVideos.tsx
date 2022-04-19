@@ -2,9 +2,10 @@ import { YoutubeVideoData } from '../../types';
 
 type ListVideosProps = {
 	searchResult: YoutubeVideoData[];
+	onClick: (video: YoutubeVideoData) => void;
 };
 
-const ListVideos: React.FC<ListVideosProps> = ({ searchResult }) => {
+const ListVideos: React.FC<ListVideosProps> = ({ searchResult, onClick }) => {
 	return (
 		<aside className="col-span-3 bg-dark-gray md:col-span-1">
 			<div className="flex flex-col">
@@ -20,7 +21,10 @@ const ListVideos: React.FC<ListVideosProps> = ({ searchResult }) => {
 					<ul className="space-y-5 overflow-y-auto md:max-h-[85vh]">
 						{searchResult.map((video) => {
 							return (
-								<li className="flex items-center cursor-pointer gap-x-5">
+								<li
+									className="flex items-center cursor-pointer gap-x-5"
+									onClick={() => onClick(video)}
+								>
 									<div className="flex flex-shrink-0">
 										<img
 											src={video.thumbnail.url}
