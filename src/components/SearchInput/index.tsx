@@ -48,7 +48,11 @@ const SearchInput: React.FC<SearchInputProps> = ({ onSubmit }) => {
 	};
 
 	return (
-		<form className="inline-flex justify-center py-3 bg-dark-gray lg:px-40" onSubmit={handleSubmit}>
+		<form
+			id="search-video-input"
+			className="inline-flex justify-center py-3 bg-dark-gray lg:px-40"
+			onSubmit={handleSubmit}
+		>
 			<div className="relative min-w-full mt-1 rounded-md shadow-sm">
 				<input
 					type="text"
@@ -59,9 +63,12 @@ const SearchInput: React.FC<SearchInputProps> = ({ onSubmit }) => {
 					value={search}
 					onChange={(e) => setSearch(e.target.value)}
 				/>
-				<div className="absolute inset-y-0 right-0 m-2 flex items-center rounded-full bg-[#464350] p-4">
+				<button
+					form="search-video-input"
+					className="absolute inset-y-0 right-0 m-2 flex items-center rounded-full bg-[#464350] p-4 cursor-pointer"
+				>
 					<SearchIcon className="w-6 h-6 text-silent-gray" />
-				</div>
+				</button>
 			</div>
 		</form>
 	);
