@@ -3,7 +3,7 @@ type BaseLayoutProps = {
 };
 
 const BaseLayout: React.FC<BaseLayoutProps> = ({ children }) => {
-  return <div className="grid grid-cols-3">{children}</div>;
+  return <main className="grid min-h-screen grid-cols-3">{children}</main>;
 };
 
 export default BaseLayout;
